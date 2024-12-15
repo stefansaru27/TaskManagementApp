@@ -1,0 +1,75 @@
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; /* Sidebar width */
+  height: 100vh; /* Full height */
+  background-color: #fff; /* Same background as header */
+  color: #333; /* Dark text for consistency */
+  padding: 20px;
+  box-shadow: none; /* No shadow for a clean look */
+  transition: none;
+  z-index: 1000;
+  border-right: 1px solid #ddd; /* Subtle border to match header */
+}
+
+/* App Name Section */
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 20px; /* Space between the logo and nav links */
+}
+
+.sidebar .logo h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333; /* Dark text */
+  margin: 0;
+}
+
+/* Navigation Links */
+.sidebar .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar .nav-links li {
+  margin: 15px 0;
+}
+
+.sidebar .nav-links li a {
+  display: block;
+  text-decoration: none;
+  color: #333; /* Text color */
+  padding: 12px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Hover effect for links */
+.sidebar .nav-links li a:hover {
+  background-color: #f0f0f0; /* Light gray for hover effect */
+  color: #3498db; /* Change text color on hover */
+}
+
+/* Active link styling */
+.sidebar .nav-links li.active a {
+  background-color: #e0e0e0; /* Subtle background for active link */
+  color: #2c3e50; /* Dark text for active link */
+  font-weight: bold;
+  border-radius: 4px; /* Rounded active item */
+}
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* Full width on mobile */
+    left: 0; /* Sidebar starts at the top of the page */
+  }
+
+  .sidebar.open {
+    left: 0; /* Fully visible on mobile */
+  }
+}

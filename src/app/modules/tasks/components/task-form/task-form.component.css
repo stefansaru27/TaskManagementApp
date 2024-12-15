@@ -1,0 +1,101 @@
+.task-form-container {
+  max-width: 600px;
+  margin: 40px auto; /* Spacing from the header */
+  padding: 20px; /* Padding inside the container */
+  background-color: var(--background-color); /* Soft background */
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  box-sizing: border-box; /* Include padding in the element's width */
+}
+
+.task-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form groups */
+}
+
+.task-form-container form .form-group {
+  width: 100%; /* Ensure form groups take up full width */
+}
+
+.task-form-container form .form-control {
+  width: 100%; /* Ensure inputs are constrained within their container */
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  box-sizing: border-box; /* Prevent inputs from overflowing */
+}
+
+.task-form-container form .form-control:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 4px rgba(52, 152, 219, 0.5); /* Subtle focus effect */
+}
+
+/* Success Message Styling */
+.success-message {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #d4edda; /* Light green background */
+  color: #155724; /* Dark green text */
+  border: 1px solid #c3e6cb; /* Light green border */
+  border-radius: var(--border-radius); /* Consistent border radius */
+  font-size: 1rem;
+  text-align: center; /* Center the text */
+  box-shadow: var(--box-shadow); /* Add subtle shadow */
+}
+
+/* Error Messages */
+.error {
+  color: #e74c3c; /* Red color for error text */
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.error small {
+  display: block;
+}
+
+/* Form Buttons */
+.task-form-container .form-buttons {
+  display: flex;
+  justify-content: space-between; /* Space between buttons */
+  gap: 10px; /* Add gap between buttons */
+}
+
+.task-form-container .form-buttons button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.task-form-container .form-buttons button:disabled {
+  background-color: #ccc; /* Gray background for disabled buttons */
+  cursor: not-allowed; /* Show not-allowed cursor */
+}
+
+.task-form-container .form-buttons button:hover:not(:disabled) {
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.task-form-container .form-buttons .button-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.task-form-container .form-buttons .button-primary:hover:not(:disabled) {
+  background-color: #2874a6; /* Slightly darker shade */
+}
+
+.task-form-container .form-buttons .button-secondary {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+.task-form-container .form-buttons .button-secondary:hover:not(:disabled) {
+  background-color: #c0392b; /* Slightly darker shade */
+}

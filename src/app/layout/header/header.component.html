@@ -1,0 +1,40 @@
+<header class="navbar">
+  <div class="navbar-left">
+    <!-- TaskMaster App Name -->
+    <div class="app-name">
+      <h1>TaskMaster</h1>
+    </div>
+  </div>
+  <div class="navbar-right">
+    <!-- User Profile Dropdown -->
+    <div
+      class="profile menu-toggle"
+      (click)="toggleMenu($event)"
+      tabindex="0"
+      (blur)="closeMenu()"
+      role="button"
+      [attr.aria-haspopup]="true"
+      [attr.aria-expanded]="menuOpen"
+    >
+      <!-- User Avatar -->
+      <img
+        [src]="user.avatar || defaultAvatar"
+        alt="User Avatar"
+        class="avatar"
+      />
+      <!-- User Name -->
+      <span class="username">{{ user.name || "Guest" }}</span>
+
+      <!-- Dropdown Menu -->
+      <div *ngIf="menuOpen" class="dropdown-menu" role="menu">
+        <ul>
+          <li (click)="navigateToProfile()" role="menuitem">Profile Details</li>
+          <li (click)="navigateToSettings()" role="menuitem">
+            Account Settings
+          </li>
+          <li (click)="signOut()" role="menuitem">Sign Out</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

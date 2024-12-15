@@ -1,0 +1,110 @@
+/* Task List Container */
+.task-list-container {
+  margin: 0 auto;
+  max-width: 800px; /* Center the task list and limit width */
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+/* Task Items */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-3px); /* Lift effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Task Details */
+.task-item div.task-details {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* Buttons Container */
+.task-item div.task-actions {
+  display: flex;
+  gap: 10px; /* Add space between buttons */
+}
+
+/* Buttons */
+.task-item button {
+  display: inline-flex; /* Ensure proper alignment */
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px; /* Consistent size */
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Delete Button */
+.task-item button.delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.task-item button.delete:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* Edit Button */
+.task-item button.edit {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.task-item button.edit:hover {
+  background-color: #2874a6;
+  transform: translateY(-2px);
+}
+
+/* No Tasks Message */
+.task-list-container {
+  margin-top: 20px; /* Add spacing from the top */
+  margin: 20px auto; /* Center container with vertical spacing */
+  max-width: 800px;
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-item div.task-actions {
+    flex-direction: row; /* Buttons next to each other */
+    justify-content: flex-start;
+    gap: 10px; /* Maintain spacing */
+  }
+
+  .task-item div.task-details {
+    margin-bottom: 10px;
+  }
+}

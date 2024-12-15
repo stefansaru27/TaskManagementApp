@@ -1,0 +1,22 @@
+<aside class="sidebar" [class.open]="isOpen">
+  <!-- App Name / Logo Section -->
+  <div class="logo">
+    <h2>TaskMaster</h2>
+  </div>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links">
+    <li [class.active]="isActive('/dashboard')">
+      <a (click)="navigateTo('/dashboard')">Dashboard</a>
+    </li>
+    <li [class.active]="isActive('/tasks')">
+      <a (click)="navigateTo('/tasks')">Task List</a>
+    </li>
+    <li [class.active]="isActive('/tasks/add')">
+      <a (click)="navigateTo('/tasks/add')">Add Task</a>
+    </li>
+    <li [class.active]="isActive('/projects')">
+      <a (click)="navigateTo('/projects')">Projects</a>
+    </li>
+  </ul>
+</aside>

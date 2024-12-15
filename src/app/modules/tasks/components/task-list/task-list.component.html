@@ -1,0 +1,25 @@
+<div class="task-list-container">
+  <div *ngIf="tasks.length > 0; else noTasks">
+    <ul>
+      <li *ngFor="let task of tasks" class="task-item">
+        <!-- Task Details -->
+        <div class="task-details">{{ task.name }} ({{ task.status }})</div>
+
+        <!-- Action Buttons -->
+        <div class="task-actions">
+          <button class="edit" [routerLink]="['/tasks', task.id]">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="delete" (click)="deleteTask(task.id)">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- No Tasks Message -->
+  <ng-template #noTasks>
+    <p>No tasks available. Start by adding one!</p>
+  </ng-template>
+</div>

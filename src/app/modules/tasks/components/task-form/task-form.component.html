@@ -1,0 +1,112 @@
+<div class="task-form-container card">
+  <!-- Success Message -->
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <!-- Task Name -->
+    <div class="form-group">
+      <label for="name">Task Name</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Enter task name"
+        class="form-control"
+      />
+      <div
+        *ngIf="taskForm.get('name')?.invalid && taskForm.get('name')?.touched"
+        class="error"
+      >
+        <small *ngIf="taskForm.get('name')?.errors?.['required']"
+          >Task name is required.</small
+        >
+        <small *ngIf="taskForm.get('name')?.errors?.['minlength']"
+          >Minimum 3 characters required.</small
+        >
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        rows="4"
+        placeholder="Enter task description (optional)"
+        class="form-control"
+      ></textarea>
+    </div>
+
+    <!-- Deadline -->
+    <div class="form-group">
+      <label for="deadline">Deadline</label>
+      <input
+        id="deadline"
+        type="date"
+        formControlName="deadline"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          taskForm.get('deadline')?.invalid && taskForm.get('deadline')?.touched
+        "
+        class="error"
+      >
+        <small>Deadline is required.</small>
+      </div>
+    </div>
+
+    <!-- Priority -->
+    <div class="form-group">
+      <label for="priority">Priority</label>
+      <select id="priority" formControlName="priority" class="form-control">
+        <option *ngFor="let priority of priorities" [value]="priority">
+          {{ priority }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Assignee -->
+    <div class="form-group">
+      <label for="assignee">Assignee</label>
+      <select id="assignee" formControlName="assignee" class="form-control">
+        <option value="">Unassigned</option>
+        <option *ngFor="let assignee of assignees" [value]="assignee">
+          {{ assignee }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Status -->
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" formControlName="status" class="form-control">
+        <option *ngFor="let status of statuses" [value]="status">
+          {{ status }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-buttons flex-center">
+      <button
+        type="submit"
+        class="btn button-primary"
+        [disabled]="taskForm.invalid"
+      >
+        Save Task
+      </button>
+      <button
+        type="button"
+        class="btn button-primary"
+        style="background-color: var(--secondary-color)"
+        (click)="resetForm()"
+      >
+        Reset
+      </button>
+    </div>
+  </form>
+</div>

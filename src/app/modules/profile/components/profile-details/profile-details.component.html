@@ -1,0 +1,141 @@
+<div class="profile-form-container card">
+  <!-- Success Message -->
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <!-- Profile Picture -->
+    <div class="form-group profile-picture-group">
+      <label for="profilePicture">Profile Picture</label>
+      <div class="profile-picture-preview">
+        <img
+          [src]="profilePicture || defaultProfilePicture"
+          alt="Profile Picture"
+          class="profile-picture"
+        />
+        <input
+          type="file"
+          id="profilePicture"
+          (change)="onFileSelected($event)"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <!-- First Name -->
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        id="firstName"
+        type="text"
+        formControlName="firstName"
+        placeholder="Enter your first name"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          profileForm.get('firstName')?.invalid &&
+          profileForm.get('firstName')?.touched
+        "
+        class="error"
+      >
+        <small *ngIf="profileForm.get('firstName')?.errors?.['required']">
+          First name is required.
+        </small>
+      </div>
+    </div>
+
+    <!-- Last Name -->
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input
+        id="lastName"
+        type="text"
+        formControlName="lastName"
+        placeholder="Enter your last name"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          profileForm.get('lastName')?.invalid &&
+          profileForm.get('lastName')?.touched
+        "
+        class="error"
+      >
+        <small *ngIf="profileForm.get('lastName')?.errors?.['required']">
+          Last name is required.
+        </small>
+      </div>
+    </div>
+
+    <!-- Email (Read-only) -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        class="form-control"
+        [readonly]="true"
+      />
+    </div>
+
+    <!-- Birthday -->
+    <div class="form-group">
+      <label for="birthday">Birthday</label>
+      <input
+        id="birthday"
+        type="date"
+        formControlName="birthday"
+        class="form-control"
+      />
+    </div>
+
+    <!-- Phone Number -->
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input
+        id="phoneNumber"
+        type="tel"
+        formControlName="phoneNumber"
+        placeholder="Enter your phone number"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          profileForm.get('phoneNumber')?.invalid &&
+          profileForm.get('phoneNumber')?.touched
+        "
+        class="error"
+      >
+        <small *ngIf="profileForm.get('phoneNumber')?.errors?.['pattern']">
+          Enter a valid phone number.
+        </small>
+      </div>
+    </div>
+
+    <!-- About Me -->
+    <div class="form-group">
+      <label for="aboutMe">About Me</label>
+      <textarea
+        id="aboutMe"
+        formControlName="aboutMe"
+        rows="4"
+        placeholder="Write a short bio"
+        class="form-control"
+      ></textarea>
+    </div>
+
+    <!-- Save Button -->
+    <div class="form-buttons flex-center">
+      <button
+        type="submit"
+        class="btn button-primary"
+        [disabled]="profileForm.invalid"
+      >
+        Save Changes
+      </button>
+    </div>
+  </form>
+</div>

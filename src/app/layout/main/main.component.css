@@ -1,0 +1,22 @@
+/* Fullscreen layout for auth pages */
+.auth-layout .main-content {
+  margin: 0; /* Remove any margins */
+  padding: 0; /* Remove padding */
+  height: 100vh; /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    #4c83ff,
+    #1d2b64
+  ); /* Match auth page background */
+}
+
+/* Default layout with sidebar */
+.main-content {
+  margin-left: 250px; /* Space for the sidebar */
+  margin-top: 60px; /* Space for the header */
+  padding: 20px; /* General padding */
+}

@@ -1,0 +1,12 @@
+<div [class.auth-layout]="isAuthRoute">
+  <!-- Only show header and sidebar if not on auth routes -->
+  <ng-container *ngIf="!isAuthRoute">
+    <app-header></app-header>
+    <app-sidenav></app-sidenav>
+  </ng-container>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
